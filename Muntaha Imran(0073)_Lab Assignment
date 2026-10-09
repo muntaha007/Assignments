@@ -1,0 +1,364 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "8ede8ff2-a853-4f82-9c47-b9352beba191",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sequare: 36\n"
+     ]
+    }
+   ],
+   "source": [
+    "def sequare(number):\n",
+    "    result=number*number\n",
+    "    return result\n",
+    "answer=sequare(6)\n",
+    "print(\"Sequare:\",answer)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "dacea185-70f4-44ff-8545-8f97dfde0545",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "result 81\n"
+     ]
+    }
+   ],
+   "source": [
+    "def sequare(number):\n",
+    "    result=number*number\n",
+    "    print(\"result\",result)\n",
+    "answer=sequare(9)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "169c050a-f481-4656-afda-d0620409240a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sequare: 36\n",
+      "Sequare+10 = 46\n"
+     ]
+    }
+   ],
+   "source": [
+    "def sequare(number):\n",
+    "    result=number*number\n",
+    "    return result\n",
+    "sequare_result=sequare(6)\n",
+    "print(\"Sequare:\",sequare_result)\n",
+    "print(\"Sequare+10 =\",sequare_result + 10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "4cc6fe4a-b7c6-408a-8854-9331cacaf9ea",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Area= 74.29\n"
+     ]
+    }
+   ],
+   "source": [
+    "def rectangle_area(length,width):\n",
+    "    area=length*width\n",
+    "    return area\n",
+    "area=rectangle_area(23,3.23)\n",
+    "print(\"Area=\",area)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "bff37481-ea81-4a3e-8fc5-e07d9199f85a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Message: Welcome to programming for AI Muntaha\n"
+     ]
+    }
+   ],
+   "source": [
+    "def creat_greeting(name):\n",
+    "    message=\"Welcome to programming for AI \"+name\n",
+    "    return message\n",
+    "greeting=creat_greeting(\"Muntaha\")\n",
+    "print(\"Message:\",greeting)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "5498ca11-3899-4fac-9547-12cd5ad3b988",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Amir has satisfactly performance.\n",
+      "Elif has satisfactly performance.\n",
+      "Harry need improvement.\n"
+     ]
+    }
+   ],
+   "source": [
+    "def performance_message(name,grade):\n",
+    "    if grade>=80:\n",
+    "        message=name+\" has satisfactly performance.\"\n",
+    "    if grade>=60:\n",
+    "        message=name+\" has satisfactly performance.\"\n",
+    "    else:\n",
+    "        message=name+\" need improvement.\"\n",
+    "    return message\n",
+    "print(performance_message(\"Amir\",89))\n",
+    "print(performance_message(\"Elif\",67))\n",
+    "print(performance_message(\"Harry\",55))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "b01de286-2c91-4756-bd30-35395d3d91f2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fail Amir\n",
+      "Grade A Rhyn\n",
+      "Grade A zadii\n"
+     ]
+    }
+   ],
+   "source": [
+    "def grade(name,marks):\n",
+    "    if marks>=80:\n",
+    "        return \"Grade A \"+name\n",
+    "    if marks>=70:\n",
+    "        return \"Grade B \"+name\n",
+    "    if marks>=60:\n",
+    "        return \"Grade c \"+name\n",
+    "    else:\n",
+    "        return \"Fail \"+name\n",
+    "print(grade(\"Amir\",55))\n",
+    "print(grade(\"Rhyn\",90))\n",
+    "print(grade(\"zadii\",98))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "79d31b25-c1e8-4293-9110-d2fbf624e992",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "if 11 is even? False\n"
+     ]
+    }
+   ],
+   "source": [
+    "def is_even(number):\n",
+    "    return number%2==0\n",
+    "result=is_even(11)\n",
+    "print(\"if 11 is even?\",result)\n",
+    "if is_even(11):\n",
+    "    print(\"11 is even number\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "4dd7d58e-b0f2-4868-a707-9a5029ffe98f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Password is valid\n"
+     ]
+    }
+   ],
+   "source": [
+    "def is_valid_password(password):\n",
+    "    return len(password)>=8\n",
+    "password=\"python123\"\n",
+    "if is_valid_password(password):\n",
+    "    print(\"Password is valid\")\n",
+    "else:\n",
+    "    print(\"Password  ot valid\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "b521af80-e4a2-4d22-87ad-d3a91758bf13",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Start with A: True\n"
+     ]
+    }
+   ],
+   "source": [
+    "def start_with_a(word):\n",
+    "    return word.lower().startswith(\"a\")\n",
+    "word=\"Artificial\"\n",
+    "print(\"Start with A:\",start_with_a(word))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "54f99f56-93a4-4148-8f6c-8cf567b39799",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "is_passes: True\n"
+     ]
+    }
+   ],
+   "source": [
+    "def calculate_average(marks1,marks2,marks3):\n",
+    "    average=(marks1+marks2+marks3)/3\n",
+    "    return average\n",
+    "    \n",
+    "def is_passes(average):\n",
+    "    return average>=50\n",
+    "average=calculate_average(67,88,79)\n",
+    "passes=is_passes(average)\n",
+    "print(\"is_passes:\",passes)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "bedca40c-1567-4e8d-bf29-d578c4036345",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "is_passes: True\n",
+      "----- Student Result -----\n",
+      "Student Name: Ali\n",
+      "Book 1 Marks: 67\n",
+      "Book 2 Marks: 88\n",
+      "Book 3 Marks: 79\n",
+      "Average Marks: 78.0\n",
+      "Grade: Grade B \n",
+      "Result: Pass\n"
+     ]
+    }
+   ],
+   "source": [
+    "def calculate_average(marks1,marks2,marks3):\n",
+    "    average=(marks1+marks2+marks3)/3\n",
+    "    return average\n",
+    "    \n",
+    "def is_passes(average):\n",
+    "    return average>=50\n",
+    "average=calculate_average(67,88,79)\n",
+    "passes=is_passes(average)\n",
+    "print(\"is_passes:\",passes)\n",
+    "\n",
+    "def grade(marks):\n",
+    "    if marks>=80:\n",
+    "        return \"Grade A \"\n",
+    "    if marks>=70:\n",
+    "        return \"Grade B \"\n",
+    "    if marks>=60:\n",
+    "        return \"Grade c \"\n",
+    "    else:\n",
+    "        return \"Fail \"\n",
+    "# Student Information\n",
+    "student_name = \"Ali\"\n",
+    "\n",
+    "marks1 = 67\n",
+    "marks2 = 88\n",
+    "marks3 = 79\n",
+    "\n",
+    "# Calculate Average\n",
+    "average = calculate_average(marks1, marks2, marks3)\n",
+    "\n",
+    "# Check Pass or Fail\n",
+    "passed = is_passes(average)\n",
+    "\n",
+    "# Calculate Grade\n",
+    "grade = grade(average)\n",
+    "\n",
+    "# Display Student Result\n",
+    "print(\"----- Student Result -----\")\n",
+    "print(\"Student Name:\", student_name)\n",
+    "print(\"Book 1 Marks:\", marks1)\n",
+    "print(\"Book 2 Marks:\", marks2)\n",
+    "print(\"Book 3 Marks:\", marks3)\n",
+    "print(\"Average Marks:\", average)\n",
+    "print(\"Grade:\", grade)\n",
+    "\n",
+    "if passed:\n",
+    "    print(\"Result: Pass\")\n",
+    "else:\n",
+    "    print(\"Result: Fail\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
