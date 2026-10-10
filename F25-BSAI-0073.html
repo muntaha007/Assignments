@@ -1,0 +1,349 @@
+<html>
+<head>
+<title>F25-BSAI-0069</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+F25-BSAI-0069</font>
+</center></td></tr></table>
+<pre><span class="s0"># Lab of Fundamentals of AI</span>
+<span class="s0"># Python Lab Assignment</span>
+<span class="s0"># Q1 to Q5 in one file</span>
+
+
+<span class="s0"># ==================== QUESTION 1 ====================</span>
+<span class="s0"># Student Result Management System</span>
+
+<span class="s0">def student_result():</span>
+    <span class="s0">students = []</span>
+
+    <span class="s0">for i in range(5):</span>
+        <span class="s0">print(&quot;\nStudent&quot;, i + 1)</span>
+        <span class="s0">name = input(&quot;Enter name: &quot;)</span>
+        <span class="s0">roll = input(&quot;Enter roll number: &quot;)</span>
+
+        <span class="s0">python = float(input(&quot;Enter Python marks: &quot;))</span>
+        <span class="s0">ai = float(input(&quot;Enter Artificial Intelligence marks: &quot;))</span>
+        <span class="s0">math = float(input(&quot;Enter Mathematics marks: &quot;))</span>
+
+        <span class="s0">student = {</span>
+            <span class="s0">&quot;name&quot;: name,</span>
+            <span class="s0">&quot;roll&quot;: roll,</span>
+            <span class="s0">&quot;python&quot;: python,</span>
+            <span class="s0">&quot;ai&quot;: ai,</span>
+            <span class="s0">&quot;math&quot;: math</span>
+        <span class="s0">}</span>
+
+        <span class="s0">students.append(student)</span>
+
+    <span class="s0">def calculate(student):</span>
+        <span class="s0">total = student[&quot;python&quot;] + student[&quot;ai&quot;] + student[&quot;math&quot;]</span>
+        <span class="s0">percentage = total / 3</span>
+
+        <span class="s0">if percentage &gt;= 80:</span>
+            <span class="s0">grade = &quot;A&quot;</span>
+        <span class="s0">elif percentage &gt;= 70:</span>
+            <span class="s0">grade = &quot;B&quot;</span>
+        <span class="s0">elif percentage &gt;= 60:</span>
+            <span class="s0">grade = &quot;C&quot;</span>
+        <span class="s0">elif percentage &gt;= 50:</span>
+            <span class="s0">grade = &quot;D&quot;</span>
+        <span class="s0">else:</span>
+            <span class="s0">grade = &quot;F&quot;</span>
+
+        <span class="s0">return total, percentage, grade</span>
+
+    <span class="s0">result = &quot;&quot;</span>
+
+    <span class="s0">print(&quot;\n----- Student Results -----&quot;)</span>
+
+    <span class="s0">highest = students[0]</span>
+
+    <span class="s0">for student in students:</span>
+        <span class="s0">total, percentage, grade = calculate(student)</span>
+
+        <span class="s0">print(&quot;\nName:&quot;, student[&quot;name&quot;])</span>
+        <span class="s0">print(&quot;Roll Number:&quot;, student[&quot;roll&quot;])</span>
+        <span class="s0">print(&quot;Total Marks:&quot;, total)</span>
+        <span class="s0">print(&quot;Percentage:&quot;, round(percentage, 2))</span>
+        <span class="s0">print(&quot;Grade:&quot;, grade)</span>
+
+        <span class="s0">result += &quot;Name: &quot; + student[&quot;name&quot;] + &quot;\n&quot;</span>
+        <span class="s0">result += &quot;Roll Number: &quot; + student[&quot;roll&quot;] + &quot;\n&quot;</span>
+        <span class="s0">result += &quot;Total Marks: &quot; + str(total) + &quot;\n&quot;</span>
+        <span class="s0">result += &quot;Percentage: &quot; + str(round(percentage, 2)) + &quot;\n&quot;</span>
+        <span class="s0">result += &quot;Grade: &quot; + grade + &quot;\n\n&quot;</span>
+
+        <span class="s0">if percentage &gt; calculate(highest)[1]:</span>
+            <span class="s0">highest = student</span>
+
+    <span class="s0">highest_percentage = calculate(highest)[1]</span>
+
+    <span class="s0">print(&quot;\nHighest Percentage:&quot;)</span>
+    <span class="s0">print(&quot;Name:&quot;, highest[&quot;name&quot;])</span>
+    <span class="s0">print(&quot;Percentage:&quot;, round(highest_percentage, 2))</span>
+
+    <span class="s0">result += &quot;Highest Percentage Student: &quot; + highest[&quot;name&quot;] + &quot;\n&quot;</span>
+    <span class="s0">result += &quot;Percentage: &quot; + str(round(highest_percentage, 2)) + &quot;\n&quot;</span>
+
+    <span class="s0">with open(&quot;results.txt&quot;, &quot;w&quot;) as file:</span>
+        <span class="s0">file.write(result)</span>
+
+    <span class="s0">print(&quot;\nResults saved in results.txt&quot;)</span>
+
+
+<span class="s0"># ==================== QUESTION 2 ====================</span>
+<span class="s0"># Sentence Analysis</span>
+
+<span class="s0">def sentence_analysis():</span>
+    <span class="s0">sentence = input(&quot;\nEnter a sentence: &quot;)</span>
+
+    <span class="s0">words = sentence.split()</span>
+    <span class="s0">unique_words = set(words)</span>
+
+    <span class="s0">longest = max(words, key=len)</span>
+    <span class="s0">shortest = min(words, key=len)</span>
+
+    <span class="s0">vowels = 0</span>
+    <span class="s0">for letter in sentence.lower():</span>
+        <span class="s0">if letter in &quot;aeiou&quot;:</span>
+            <span class="s0">vowels += 1</span>
+
+    <span class="s0">analysis = &quot;&quot;</span>
+    <span class="s0">analysis += &quot;Total words: &quot; + str(len(words)) + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Total characters: &quot; + str(len(sentence)) + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Longest word: &quot; + longest + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Shortest word: &quot; + shortest + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Number of vowels: &quot; + str(vowels) + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Unique words: &quot; + str(unique_words) + &quot;\n&quot;</span>
+    <span class="s0">analysis += &quot;Alphabetical order: &quot; + str(sorted(unique_words)) + &quot;\n&quot;</span>
+
+    <span class="s0">print(&quot;\n----- Sentence Analysis -----&quot;)</span>
+    <span class="s0">print(analysis)</span>
+
+    <span class="s0">with open(&quot;word_analysis.txt&quot;, &quot;w&quot;) as file:</span>
+        <span class="s0">file.write(analysis)</span>
+
+    <span class="s0">print(&quot;Analysis saved in word_analysis.txt&quot;)</span>
+
+
+<span class="s0"># ==================== QUESTION 3 ====================</span>
+<span class="s0"># Shopping Program</span>
+
+<span class="s0">def shopping():</span>
+    <span class="s0">products = {}</span>
+
+    <span class="s0">for i in range(5):</span>
+        <span class="s0">print(&quot;\nProduct&quot;, i + 1)</span>
+        <span class="s0">name = input(&quot;Enter product name: &quot;)</span>
+        <span class="s0">price = float(input(&quot;Enter price: &quot;))</span>
+        <span class="s0">quantity = int(input(&quot;Enter quantity: &quot;))</span>
+
+        <span class="s0">products[name] = {</span>
+            <span class="s0">&quot;price&quot;: price,</span>
+            <span class="s0">&quot;quantity&quot;: quantity</span>
+        <span class="s0">}</span>
+
+    <span class="s0">def calculate_bill():</span>
+        <span class="s0">total = 0</span>
+
+        <span class="s0">for name in products:</span>
+            <span class="s0">price = products[name][&quot;price&quot;]</span>
+            <span class="s0">quantity = products[name][&quot;quantity&quot;]</span>
+            <span class="s0">product_total = price * quantity</span>
+
+            <span class="s0">print(name, &quot;=&quot;, product_total)</span>
+            <span class="s0">total += product_total</span>
+
+        <span class="s0">return total</span>
+
+    <span class="s0">print(&quot;\n----- Shopping Bill -----&quot;)</span>
+    <span class="s0">total = calculate_bill()</span>
+
+    <span class="s0">print(&quot;Total Bill:&quot;, total)</span>
+
+    <span class="s0">discount = 0</span>
+
+    <span class="s0">if total &gt; 10000:</span>
+        <span class="s0">discount = total * 0.10</span>
+        <span class="s0">print(&quot;Discount:&quot;, discount)</span>
+
+    <span class="s0">final_bill = total - discount</span>
+    <span class="s0">print(&quot;Final Bill:&quot;, final_bill)</span>
+
+    <span class="s0">expensive = &quot;&quot;</span>
+    <span class="s0">highest_price = 0</span>
+
+    <span class="s0">for name in products:</span>
+        <span class="s0">product_total = products[name][&quot;price&quot;] * products[name][&quot;quantity&quot;]</span>
+
+        <span class="s0">if product_total &gt; highest_price:</span>
+            <span class="s0">highest_price = product_total</span>
+            <span class="s0">expensive = name</span>
+
+    <span class="s0">print(&quot;Most Expensive Product:&quot;, expensive)</span>
+
+    <span class="s0">with open(&quot;bill.txt&quot;, &quot;w&quot;) as file:</span>
+        <span class="s0">file.write(&quot;Shopping Bill\n&quot;)</span>
+        <span class="s0">file.write(&quot;Total Bill: &quot; + str(total) + &quot;\n&quot;)</span>
+        <span class="s0">file.write(&quot;Discount: &quot; + str(discount) + &quot;\n&quot;)</span>
+        <span class="s0">file.write(&quot;Final Bill: &quot; + str(final_bill) + &quot;\n&quot;)</span>
+        <span class="s0">file.write(&quot;Most Expensive Product: &quot; + expensive + &quot;\n&quot;)</span>
+
+    <span class="s0">print(&quot;Bill saved in bill.txt&quot;)</span>
+
+
+<span class="s0"># ==================== QUESTION 4 ====================</span>
+<span class="s0"># Calculator</span>
+
+<span class="s0">def calculator():</span>
+    <span class="s0">def add(a, b):</span>
+        <span class="s0">return a + b</span>
+
+    <span class="s0">def subtract(a, b):</span>
+        <span class="s0">return a - b</span>
+
+    <span class="s0">def multiply(a, b):</span>
+        <span class="s0">return a * b</span>
+
+    <span class="s0">def divide(a, b):</span>
+        <span class="s0">return a / b</span>
+
+    <span class="s0">def modulus(a, b):</span>
+        <span class="s0">return a % b</span>
+
+    <span class="s0">while True:</span>
+        <span class="s0">print(&quot;\n----- Calculator -----&quot;)</span>
+
+        <span class="s0">num1 = float(input(&quot;Enter first number: &quot;))</span>
+        <span class="s0">num2 = float(input(&quot;Enter second number: &quot;))</span>
+
+        <span class="s0">print(&quot;+ Addition&quot;)</span>
+        <span class="s0">print(&quot;- Subtraction&quot;)</span>
+        <span class="s0">print(&quot;* Multiplication&quot;)</span>
+        <span class="s0">print(&quot;/ Division&quot;)</span>
+        <span class="s0">print(&quot;% Modulus&quot;)</span>
+
+        <span class="s0">operation = input(&quot;Enter operation: &quot;)</span>
+
+        <span class="s0">if operation == &quot;+&quot;:</span>
+            <span class="s0">answer = add(num1, num2)</span>
+        <span class="s0">elif operation == &quot;-&quot;:</span>
+            <span class="s0">answer = subtract(num1, num2)</span>
+        <span class="s0">elif operation == &quot;*&quot;:</span>
+            <span class="s0">answer = multiply(num1, num2)</span>
+        <span class="s0">elif operation == &quot;/&quot;:</span>
+            <span class="s0">if num2 == 0:</span>
+                <span class="s0">print(&quot;Cannot divide by zero.&quot;)</span>
+                <span class="s0">continue</span>
+            <span class="s0">answer = divide(num1, num2)</span>
+        <span class="s0">elif operation == &quot;%&quot;:</span>
+            <span class="s0">if num2 == 0:</span>
+                <span class="s0">print(&quot;Cannot use modulus with zero.&quot;)</span>
+                <span class="s0">continue</span>
+            <span class="s0">answer = modulus(num1, num2)</span>
+        <span class="s0">else:</span>
+            <span class="s0">print(&quot;Invalid operation.&quot;)</span>
+            <span class="s0">continue</span>
+
+        <span class="s0">print(&quot;Result:&quot;, answer)</span>
+
+        <span class="s0">again = input(&quot;Do you want another calculation? (yes/no): &quot;)</span>
+
+        <span class="s0">if again.lower() != &quot;yes&quot;:</span>
+            <span class="s0">break</span>
+
+
+<span class="s0"># ==================== QUESTION 5 ====================</span>
+<span class="s0"># Restaurant Management System</span>
+
+<span class="s0">def restaurant():</span>
+    <span class="s0">menu = {</span>
+        <span class="s0">1: [&quot;Burger&quot;, 500],</span>
+        <span class="s0">2: [&quot;Pizza&quot;, 800],</span>
+        <span class="s0">3: [&quot;Fries&quot;, 250],</span>
+        <span class="s0">4: [&quot;Drink&quot;, 150]</span>
+    <span class="s0">}</span>
+
+    <span class="s0">orders = []</span>
+    <span class="s0">total = 0</span>
+
+    <span class="s0">while True:</span>
+        <span class="s0">print(&quot;\n----- Restaurant Menu -----&quot;)</span>
+        <span class="s0">print(&quot;1. Burger - Rs. 500&quot;)</span>
+        <span class="s0">print(&quot;2. Pizza - Rs. 800&quot;)</span>
+        <span class="s0">print(&quot;3. Fries - Rs. 250&quot;)</span>
+        <span class="s0">print(&quot;4. Drink - Rs. 150&quot;)</span>
+        <span class="s0">print(&quot;5. Finish Order&quot;)</span>
+
+        <span class="s0">choice = int(input(&quot;Select item: &quot;))</span>
+
+        <span class="s0">if choice == 5:</span>
+            <span class="s0">break</span>
+
+        <span class="s0">if choice in menu:</span>
+            <span class="s0">quantity = int(input(&quot;Enter quantity: &quot;))</span>
+
+            <span class="s0">name = menu[choice][0]</span>
+            <span class="s0">price = menu[choice][1]</span>
+            <span class="s0">item_total = price * quantity</span>
+
+            <span class="s0">orders.append([name, quantity, item_total])</span>
+            <span class="s0">total += item_total</span>
+
+            <span class="s0">print(&quot;Item added.&quot;)</span>
+        <span class="s0">else:</span>
+            <span class="s0">print(&quot;Invalid choice.&quot;)</span>
+
+    <span class="s0">print(&quot;\n----- Final Bill -----&quot;)</span>
+
+    <span class="s0">bill = &quot;Restaurant Bill\n\n&quot;</span>
+
+    <span class="s0">for order in orders:</span>
+        <span class="s0">print(order[0], &quot;x&quot;, order[1], &quot;=&quot;, order[2])</span>
+        <span class="s0">bill += order[0] + &quot; x &quot; + str(order[1]) + &quot; = Rs. &quot; + str(order[2]) + &quot;\n&quot;</span>
+
+    <span class="s0">print(&quot;Final Bill: Rs.&quot;, total)</span>
+    <span class="s0">bill += &quot;\nFinal Bill: Rs. &quot; + str(total)</span>
+
+    <span class="s0">with open(&quot;orders.txt&quot;, &quot;w&quot;) as file:</span>
+        <span class="s0">file.write(bill)</span>
+
+    <span class="s0">print(&quot;Bill saved in orders.txt&quot;)</span>
+
+
+<span class="s0">print(&quot;===== PYTHON LAB ASSIGNMENT =====&quot;)</span>
+<span class="s0">print(&quot;Q1 starts at: Student Result Management System&quot;)</span>
+<span class="s0">print(&quot;Q2 starts at: Sentence Analysis&quot;)</span>
+<span class="s0">print(&quot;Q3 starts at: Shopping Program&quot;)</span>
+<span class="s0">print(&quot;Q4 starts at: Calculator&quot;)</span>
+<span class="s0">print(&quot;Q5 starts at: Restaurant Management System&quot;)</span>
+<span class="s0">print(&quot;1. Student Result Management System&quot;)</span>
+<span class="s0">print(&quot;2. Sentence Analysis&quot;)</span>
+<span class="s0">print(&quot;3. Shopping Program&quot;)</span>
+<span class="s0">print(&quot;4. Calculator&quot;)</span>
+<span class="s0">print(&quot;5. Restaurant Management System&quot;)</span>
+
+<span class="s0">choice = input(&quot;Select task (1-5): &quot;)</span>
+
+<span class="s0">if choice == &quot;1&quot;:</span>
+    <span class="s0">student_result()</span>
+<span class="s0">elif choice == &quot;2&quot;:</span>
+    <span class="s0">sentence_analysis()</span>
+<span class="s0">elif choice == &quot;3&quot;:</span>
+    <span class="s0">shopping()</span>
+<span class="s0">elif choice == &quot;4&quot;:</span>
+    <span class="s0">calculator()</span>
+<span class="s0">elif choice == &quot;5&quot;:</span>
+    <span class="s0">restaurant()</span>
+<span class="s0">else:</span>
+    <span class="s0">print(&quot;Invalid choice.&quot;)</span>
+</pre>
+</body>
+</html>
